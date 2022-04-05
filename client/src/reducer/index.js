@@ -5,6 +5,7 @@ const initialState = {
   createVideogame: null,
   searchVideogameById: [],
   searchVideogameByName: [],
+  detail: [],
   filteredVideogames: [],
   orderBy: "Select",
   filterBy: "All",
@@ -82,6 +83,11 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         videogames: sortedArr,
+      };
+    case "GET_DETAILS":
+      return {
+        ...state,
+        detail: action.payload,
       };
 
     default:

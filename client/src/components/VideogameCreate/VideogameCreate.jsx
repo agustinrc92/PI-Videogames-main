@@ -3,10 +3,21 @@ import { Link, useHistory } from "react-router-dom";
 import { postVideogame, getGenres } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
+function validate(input) {
+  let errors = {};
+  if (!input.name) {
+    errors.name = "Debes ingresar un nombre";
+  } else if (!input.description) {
+    errors.description = "Debes ingresar una descripción";
+  }
+  return errors;
+}
+
 export default function VideogameCreate() {
   const dispatch = useDispatch();
   const history = useHistory();
   const genres = useSelector((state) => state.genres);
+  const [errors, setErrors] = useState({});
 
   const [input, setInput] = useState({
     name: "",
@@ -22,6 +33,12 @@ export default function VideogameCreate() {
       ...input,
       [e.target.name]: e.target.value,
     });
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
 
     console.log(input);
   }
@@ -68,6 +85,7 @@ export default function VideogameCreate() {
             name="name"
             onChange={(e) => handleChange(e)}
           ></input>
+          {errors.name && <p classname="error">{errors.name}</p>}
         </div>
         <div>
           <label>Descripcion:</label>
