@@ -1,17 +1,54 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getVideogames } from "../../actions";
+import {
+  getVideogames,
+  getGenres,
+  filterVideogamesByGenre,
+  orderByName,
+} from "../../actions";
 import Card from "../Card/Card";
 import { Link } from "react-router-dom";
+import Paginado from "../Paginado/Paginado";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function Home() {
   const dispatch = useDispatch();
   const videogames = useSelector((state) => state.videogames);
+  const [orden, setOrden] = useState("");
+  const genres = useSelector((state) => state.genres);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [videogamesPerPage, setVideogamesPerPage] = useState(15);
+  const indexOfLastVideogame = currentPage * videogamesPerPage;
+  const indexOfFirstVideogame = indexOfLastVideogame - videogamesPerPage;
+  const currentVideoGames = videogames.slice(
+    indexOfFirstVideogame,
+    indexOfLastVideogame
+  );
+
+  const paginado = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   useEffect(() => {
     dispatch(getVideogames());
+    dispatch(getGenres());
   }, [dispatch]);
+
+  //FUNCION PARA FILTRAR POR GENERO
+  function handleFilterGenres(e) {
+    console.log("a");
+    dispatch(filterVideogamesByGenre(e.target.value));
+    console.log(e.target.value);
+  }
+
+  //FUNCION PARA UTILIZAR EL FILTRO DE ORDENAR AZ
+  function handleSort(e) {
+    e.preventDefault();
+    dispatch(orderByName(e.target.value));
+    setCurrentPage(1);
+    setOrden(`Ordenado ${e.target.value}`);
+  }
 
   return (
     <div>
@@ -22,22 +59,38 @@ export default function Home() {
           <option value="asc">Rating Ascendente</option>
           <option value="desc">Rating Descendente</option>
         </select>
+        <select onChange={(e) => handleFilterGenres(e)}>
+          <option value="All">Todos</option>
+          {genres.map((genre) => (
+            <option key={genre.id} value={genre.name}>
+              {genre.name}
+            </option>
+          ))}
+        </select>
         <select>
           <option value="All">Todos</option>
           <option value="Api">Existente</option>
           <option value="Created">Creado</option>
         </select>
-        <select>
-          <option value="A-Z">A-Z</option>
-          <option value="Z-A">Z-A</option>
-        </select>
+        <div>
+          <select onChange={(e) => handleSort(e)}>
+            <option value="desc">A-Z</option>
+            <option value="asc">Z-A</option>
+          </select>
+          <Paginado
+            videogamesPerPage={videogamesPerPage}
+            videogames={videogames.length}
+            paginado={paginado}
+          />
+          <SearchBar />
+        </div>
 
-        {videogames &&
-          videogames.map((el) => {
-            <Card name={el.name} image={el.image} genre={el.genre} />;
+        {currentVideoGames &&
+          currentVideoGames.map((el) => {
+            <Card name={el.name} image={el.image} genre={el.genres} />;
             return (
               <div>
-                <Card name={el.name} image={el.image} genre={el.genre} />
+                <Card name={el.name} image={el.image} genre={el.genres} />
               </div>
             );
           })}

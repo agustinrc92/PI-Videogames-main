@@ -20,24 +20,32 @@ let page = `https://api.rawg.io/api/games?key=${API_KEY}`;
 //Obtener todos los juegos
 
 const getAllGames = async () => {
-  try {
-    const apiUrl = await axios.get(page);
-
-    const apiInfo = await apiUrl.data.results.map((game) => {
-      console.log(game.platforms);
-      return {
-        id: game.id,
-        name: game.name,
-        image: game.background_image,
-        genres: game.genres.map((genre) => {
-          return genre.name;
-        }),
-      };
-    });
-    return apiInfo;
-  } catch (error) {
-    console.log(error);
-  }
+  console.log(page);
+  let results = [];
+  const pages = [1, 2, 3, 4, 5];
+  const queries = [];
+  pages.forEach((pageNumber) => {
+    queries.push(axios.get(page + `&page=${pageNumber}`));
+  });
+  await Promise.all(queries)
+    .then((queryResults) => {
+      queryResults.forEach((queryResult) => {
+        let response = queryResult.data;
+        console.log(response.results.length);
+        results.push(
+          ...response.results.map((e) => ({
+            id: e.id,
+            name: e.name,
+            image: e.background_image,
+            genres: e.genres.map((r) => r.name),
+            rating: e.rating,
+          }))
+        );
+      });
+    })
+    .catch((error) => console.log(error));
+  console.log(results.length);
+  return results;
 };
 
 //Obtener info de DB
@@ -62,6 +70,7 @@ const getAllVideogames = async () => {
   const apiInfo = await getAllGames();
   const dbInfo = await getDbInfo();
   const infoTotal = apiInfo.concat(dbInfo);
+  console.log(apiInfo.length);
   return infoTotal;
 };
 
@@ -72,7 +81,7 @@ router.get("/videogames", async (req, res) => {
   try {
     if (name) {
       let videogameName = await axios.get(page + `&search=${name}`);
-      console.log(videogameName);
+
       videogameName = videogameName.data.results.map((game) => {
         console.log(game.platforms);
         return {
