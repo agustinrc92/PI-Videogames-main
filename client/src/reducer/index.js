@@ -35,9 +35,17 @@ export default function rootReducer(state = initialState, action) {
         videogames: genreFiltered,
       };
 
-    // case "FILTER_CREATED":
-    //   const allVideogames2 = state.videogames;
-    //   const createdFilter= action.payload === 'created' ? allVideogames2.filter (el=> el.)
+    case "FILTER_CREATED":
+      const allVideogames2 = state.videogames;
+      const createdFilter =
+        action.payload === "creados"
+          ? allVideogames2.filter((el) => el.createdInDb)
+          : allVideogames2.filter((el) => !el.createdInDb);
+      return {
+        ...state,
+        videogames:
+          action.payload === "All" ? state.allVideogames2 : createdFilter,
+      };
 
     case "POST_VIDEOGAME":
       return {

@@ -6,6 +6,7 @@ import {
   getGenres,
   filterVideogamesByGenre,
   orderByName,
+  filterCreated,
 } from "../../actions";
 import Card from "../Card/Card";
 import { Link } from "react-router-dom";
@@ -50,6 +51,11 @@ export default function Home() {
     setOrden(`Ordenado ${e.target.value}`);
   }
 
+  //FUNCION PARA FILTRAR POR CREADO O API
+  function handleFilterCreated(e) {
+    dispatch(filterCreated(e.target.value));
+  }
+
   return (
     <div>
       <Link to="/videogame">Crear Videojuego</Link>
@@ -67,10 +73,10 @@ export default function Home() {
             </option>
           ))}
         </select>
-        <select>
+        <select onChange={(e) => handleFilterCreated(e)}>
           <option value="All">Todos</option>
-          <option value="Api">Existente</option>
-          <option value="Created">Creado</option>
+          <option value="creados">Creado</option>
+          <option value="existente">Existente</option>
         </select>
         <div>
           <select onChange={(e) => handleSort(e)}>

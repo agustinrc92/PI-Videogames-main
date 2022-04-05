@@ -81,7 +81,7 @@ export default function VideogameCreate() {
         <div>
           <label>Fecha de lanzamiento:</label>
           <input
-            type="text"
+            type="date"
             value={input.released}
             name="released"
             onChange={(e) => handleChange(e)}
