@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { postVideogame, getGenres } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
+import "./VideogameCreate.css";
 
 function validate(input) {
   let errors = {};

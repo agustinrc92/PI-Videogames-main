@@ -12,6 +12,7 @@ import Card from "../Card/Card";
 import { Link } from "react-router-dom";
 import Paginado from "../Paginado/Paginado";
 import SearchBar from "../SearchBar/SearchBar";
+import "./Home.css";
 
 export default function Home() {
   const dispatch = useDispatch();
