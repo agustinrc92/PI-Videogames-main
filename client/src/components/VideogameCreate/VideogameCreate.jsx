@@ -29,6 +29,14 @@ export default function VideogameCreate() {
     platforms: [],
   });
 
+  //BORRAR GENRES AGREGADOS CREANDO EL VIDEOJUEGO
+  function handleDelete(el) {
+    setInput({
+      ...input,
+      genres: input.genres.filter((genre) => genre !== el),
+    });
+  }
+
   function handleChange(e) {
     setInput({
       ...input,
@@ -70,6 +78,22 @@ export default function VideogameCreate() {
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
+
+  //PLATAFORMAS
+  const randomPlatforms = [
+    "PC",
+    "PS4",
+    "XBOX",
+    "SWITCH",
+    "PS3",
+    "XBOX ONE",
+    "NINTENDO SWITCH",
+    "PS2",
+    "NINTENDO DS",
+    "NINTENDO WII",
+    "NINTENDO GAMECUBE",
+    "NINTENDO 64",
+  ];
 
   return (
     <div>
@@ -116,7 +140,7 @@ export default function VideogameCreate() {
           ></input>
         </div>
         <div>
-          <label>Generos:</label>
+          <label>Generos</label>
           <select onChange={(e) => handleSelect(e)}>
             {genres.map((genres) => (
               <option key={genres.id} value={genres.id}>
@@ -128,22 +152,24 @@ export default function VideogameCreate() {
             <li>{input.genres.map((el) => el + " ,")}</li>
           </ul>
         </div>
+        {input.genres.map((el) => (
+          <div className="divGenres">
+            <p>{el}</p>
+            <button className="botonX" onClick={() => handleDelete(el)}>
+              X
+            </button>
+          </div>
+        ))}
         <div>
-          <label>Plataformas:</label>
-          <select multiple value={input.platforms} name="platforms">
-            <option value="1">PC</option>
-            <option value="2">PlayStation 4</option>
-            <option value="3">Xbox One</option>
-            <option value="4">Nintendo Switch</option>
-            <option value="5">Nintendo 3DS</option>
-            <option value="6">Nintendo Wii U</option>
-            <option value="7">Nintendo DS</option>
-            <option value="8">Nintendo 3DS XL</option>
-            <option value="9">Nintendo Wii</option>
-            <option value="10">Nintendo GameCube</option>
-            <option value="11">Nintendo 64</option>
-            <option value="12">Nintendo Game</option>
-          </select>
+          <label>Platforms:</label>
+          <div>
+            {randomPlatforms.map((P) => (
+              <div key={P}>
+                <input type="checkbox" name="platforms" value={P}></input>
+                <label name={P}>{P}</label>
+              </div>
+            ))}
+          </div>
         </div>
         <button type="submit">Crear VideoJuego</button>
       </form>

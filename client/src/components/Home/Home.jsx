@@ -84,24 +84,26 @@ export default function Home() {
             <option value="desc">A-Z</option>
             <option value="asc">Z-A</option>
           </select>
-          <Paginado
-            videogamesPerPage={videogamesPerPage}
-            videogames={videogames.length}
-            paginado={paginado}
-          />
           <SearchBar />
+          <nav>
+            <Paginado
+              videogamesPerPage={videogamesPerPage}
+              videogames={videogames.length}
+              paginado={paginado}
+            />
+          </nav>
         </div>
 
         {currentVideoGames &&
           currentVideoGames.map((el) => {
             <Card name={el.name} image={el.image} genre={el.genres} />;
             return (
-              <div>
+              <fragment>
                 <Card name={el.name} image={el.image} genre={el.genres} />
                 <Link to={`videogame/${el.id}`}>
                   <button>Detalles</button>
                 </Link>
-              </div>
+              </fragment>
             );
           })}
       </div>

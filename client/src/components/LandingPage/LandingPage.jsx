@@ -5,7 +5,8 @@ import "./LandingPage.css";
 export default function LandingPage() {
   return (
     <div>
-      <h1>Bienvenidos a VideoJuegos by Agustin</h1>
+      <h1>Proyecto Videogames</h1>
+      <h1>Agustin Rodriguez</h1>
       <Link to="/home">
         <button>Ingresar</button>
       </Link>
