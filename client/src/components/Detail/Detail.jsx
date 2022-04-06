@@ -22,8 +22,8 @@ export default function Detail(props) {
           <img
             src={myVideogame.img ? myVideogame.img : myVideogame.image}
             alt=""
-            width="500px"
-            height="700px"
+            width="350px"
+            height="550px"
           />
           <h2>
             Genero:{" "}
@@ -31,15 +31,15 @@ export default function Detail(props) {
               ? myVideogame.genre + " "
               : myVideogame.genres.map((el) => el.name + " ")}
           </h2>
-          <h2>
-            Plataforma:{" "}
-            {!myVideogame.createdInDb
-              ? myVideogame.platform + " "
-              : myVideogame.platforms.map((el) => el.name + " ")}
-          </h2>
           <p>Descripcion: {myVideogame.description}</p>
           <p>Fecha de Lanzamiento: {myVideogame.released}</p>
           <p>Rating: {myVideogame.rating}</p>
+          <p>
+            Plataformas:{" "}
+            {!myVideogame.createdInDb
+              ? myVideogame.platform + " "
+              : myVideogame.platforms.map((el) => el.name + " ")}
+          </p>
         </div>
       ) : (
         <p>Loading..</p>

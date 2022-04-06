@@ -173,7 +173,6 @@ router.get("/videogame/:id", async (req, res) => {
         res.status(404).send("No se encontro el juego");
       }
     } else if (Number(id) !== NaN) {
-      console.log("API");
       let videogameId = await axios.get(
         `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
       );

@@ -97,6 +97,9 @@ export default function Home() {
             return (
               <div>
                 <Card name={el.name} image={el.image} genre={el.genres} />
+                <Link to={`videogame/${el.id}`}>
+                  <button>Detalles</button>
+                </Link>
               </div>
             );
           })}
