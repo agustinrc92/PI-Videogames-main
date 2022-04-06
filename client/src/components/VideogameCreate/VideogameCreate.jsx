@@ -68,7 +68,7 @@ export default function VideogameCreate() {
 
   useEffect(() => {
     dispatch(getGenres());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

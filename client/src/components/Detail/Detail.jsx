@@ -10,13 +10,13 @@ export default function Detail(props) {
 
   useEffect(() => {
     dispatch(getDetail(props.match.params.id));
-  }, [dispatch]);
+  }, [dispatch, props.match.params.id]);
 
   const myVideogame = useSelector((state) => state.detail);
 
   return (
     <div>
-      {myVideogame.length > 0 ? (
+      {Object.entries(myVideogame).length > 0 ? (
         <div>
           <h1>Esto es {myVideogame.name}</h1>
           <img
