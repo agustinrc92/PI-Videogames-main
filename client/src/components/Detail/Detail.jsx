@@ -32,7 +32,9 @@ export default function Detail(props) {
               ? myVideogame.genres + " "
               : myVideogame.genres.map((el) => el.name + " ")}
           </h2>
-          <p>Descripcion: {myVideogame.description}</p>
+          <p>
+            Descripcion: {myVideogame.description.replace(/(<([^>]+)>)/gi, "")}
+          </p>
           <p>Fecha de Lanzamiento: {myVideogame.released}</p>
           <p>Rating: {myVideogame.rating}</p>
           <p>
