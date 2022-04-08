@@ -98,12 +98,12 @@ export default function Home() {
           currentVideoGames.map((el) => {
             <Card name={el.name} image={el.image} genre={el.genres} />;
             return (
-              <fragment>
+              <div>
                 <Card name={el.name} image={el.image} genre={el.genres} />
                 <Link to={`videogame/${el.id}`}>
                   <button>Detalles</button>
                 </Link>
-              </fragment>
+              </div>
             );
           })}
       </div>

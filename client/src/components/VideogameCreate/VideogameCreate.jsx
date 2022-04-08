@@ -53,6 +53,7 @@ export default function VideogameCreate() {
   }
 
   function handleSelect(e) {
+    console.log(e.target.value);
     setInput({
       ...input,
       genres: [...input.genres, e.target.value],
@@ -144,7 +145,7 @@ export default function VideogameCreate() {
           <label>Generos</label>
           <select onChange={(e) => handleSelect(e)}>
             {genres.map((genres) => (
-              <option key={genres.id} value={genres.id}>
+              <option key={genres.id} value={genres.name}>
                 {genres.name}
               </option>
             ))}

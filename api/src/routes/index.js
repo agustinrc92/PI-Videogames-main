@@ -51,16 +51,20 @@ const getAllGames = async () => {
 //Obtener info de DB
 
 const getDbInfo = async () => {
-  const dbInfo = await Videogame.findAll({
+  let dbInfo = await Videogame.findAll({
     include: [
       {
         model: Genre,
         as: "genres",
-        attributes: ["id", "name"],
+        attributes: ["name"],
         through: { attributes: [] },
       },
     ],
   });
+  dbInfo = dbInfo.map((e) => ({
+    ...e.dataValues,
+    genres: e.genres.map((r) => r.name),
+  }));
   return dbInfo;
 };
 
