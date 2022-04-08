@@ -1,20 +1,24 @@
 body {
-  background: url(https://www.pixelstalk.net/wp-content/uploads/images5/4K-White-Wallpaper-HD-Free-download-768x432.jpg);
+  background-color: bisque;
   size: 100% 100%;
 }
 button {
   background-color: black;
   color: white;
-  padding: 14px 20px;
+  padding: 7px 20px;
   margin: 8px 0;
-  border: none;
+  border: 1px solid white;
+  border-radius: 7px;
+  justify-content: center;
   cursor: pointer;
-  width: 10%;
+  width: 7%;
+  font-size: 15px;
 }
 
 h1 {
   text-align: center;
   font-size: 50px;
-  color: yellow;
+  color: whitesmoke;
   background-color: black;
+  padding: 5px;
 }

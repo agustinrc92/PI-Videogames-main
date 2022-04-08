@@ -120,6 +120,7 @@ export default function VideogameCreate() {
             name="description"
             onChange={(e) => handleChange(e)}
           ></input>
+          {errors.description && <p classname="error">{errors.description}</p>}
         </div>
         <div>
           <label>Fecha de lanzamiento:</label>

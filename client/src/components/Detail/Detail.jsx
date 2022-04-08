@@ -19,7 +19,7 @@ export default function Detail(props) {
     <div>
       {Object.entries(myVideogame).length > 0 ? (
         <div>
-          <h1>Esto es {myVideogame.name}</h1>
+          <h1>{myVideogame.name}</h1>
           <img
             src={myVideogame.img ? myVideogame.img : myVideogame.image}
             alt=""
@@ -29,7 +29,7 @@ export default function Detail(props) {
           <h2>
             Genero:{" "}
             {!myVideogame.createdInDb
-              ? myVideogame.genre + " "
+              ? myVideogame.genres + " "
               : myVideogame.genres.map((el) => el.name + " ")}
           </h2>
           <p>Descripcion: {myVideogame.description}</p>
@@ -38,7 +38,7 @@ export default function Detail(props) {
           <p>
             Plataformas:{" "}
             {!myVideogame.createdInDb
-              ? myVideogame.platform + " "
+              ? myVideogame.platforms + " "
               : myVideogame.platforms.map((el) => el.name + " ")}
           </p>
         </div>
