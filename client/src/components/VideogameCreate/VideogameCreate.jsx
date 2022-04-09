@@ -53,7 +53,6 @@ export default function VideogameCreate() {
   }
 
   function handleSelect(e) {
-    console.log(e.target.value);
     setInput({
       ...input,
       genres: [...input.genres, e.target.value],
@@ -62,7 +61,6 @@ export default function VideogameCreate() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(input);
     dispatch(postVideogame(input));
     alert("VideoJuego Creado");
     setInput({
@@ -111,7 +109,7 @@ export default function VideogameCreate() {
             name="name"
             onChange={(e) => handleChange(e)}
           ></input>
-          {errors.name && <p classname="error">{errors.name}</p>}
+          {errors.name && <p className="error">{errors.name}</p>}
         </div>
         <div>
           <label>Descripcion:</label>
@@ -121,7 +119,7 @@ export default function VideogameCreate() {
             name="description"
             onChange={(e) => handleChange(e)}
           ></input>
-          {errors.description && <p classname="error">{errors.description}</p>}
+          {errors.description && <p className="error">{errors.description}</p>}
         </div>
         <div>
           <label>Fecha de lanzamiento:</label>

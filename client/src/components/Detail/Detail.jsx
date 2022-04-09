@@ -6,12 +6,13 @@ import { useEffect } from "react";
 import "./Detail.css";
 
 export default function Detail(props) {
-  console.log(props);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getDetail(props.match.params.id));
   }, [dispatch, props.match.params.id]);
+
+  //MYVIDEOGAMES.GENRES ME LO TRAE UNDEFINED CUANDO SON CREADOS
 
   const myVideogame = useSelector((state) => state.detail);
 
