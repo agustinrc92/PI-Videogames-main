@@ -7,6 +7,7 @@ import {
   filterVideogamesByGenre,
   orderByName,
   filterCreated,
+  orderByRating,
 } from "../../actions";
 import Card from "../Card/Card";
 import { Link } from "react-router-dom";
@@ -44,7 +45,15 @@ export default function Home() {
     console.log(e.target.value);
   }
 
-  //FUNCION PARA UTILIZAR EL FILTRO DE ORDENAR AZ
+  //FUNCION PARA ORDENAR POR RATING
+  function handleOrderByRating(e) {
+    e.preventDefault();
+    dispatch(orderByRating(e.target.value));
+    setCurrentPage(1);
+    setOrden(`Ordenado ${e.target.value}`);
+  }
+
+  //FUNCION PARAs ORDENAR AZ
   function handleSort(e) {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
@@ -62,7 +71,7 @@ export default function Home() {
       <Link to="/videogame">Crear Videojuego</Link>
       <h1>Videogames Center</h1>
       <div>
-        <select>
+        <select onChange={(e) => handleOrderByRating(e)}>
           <option value="asc">Rating Ascendente</option>
           <option value="desc">Rating Descendente</option>
         </select>

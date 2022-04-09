@@ -72,6 +72,14 @@ export function orderByName(payload) {
   };
 }
 
+//ORDENAR POR RATING
+export function orderByRating(payload) {
+  return {
+    type: "ORDER_BY_RATING",
+    payload,
+  };
+}
+
 //DETAIL TRAER VIDEOJUEGO POR ID
 export function getDetail(id) {
   return async function (dispatch) {

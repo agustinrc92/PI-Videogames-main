@@ -7,6 +7,7 @@ const initialState = {
   searchVideogameByName: [],
   detail: [],
   filteredVideogames: [],
+  rating: [],
   orderBy: "Select",
   filterBy: "All",
   filteredGames: [],
@@ -88,6 +89,32 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         detail: action.payload,
+      };
+
+    case "ORDER_BY_RATING":
+      let sortedArr2 =
+        action.payload === "desc"
+          ? state.videogames.sort(function (a, b) {
+              if (a.rating > b.rating) {
+                return 1;
+              }
+              if (a.rating < b.rating) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.videogames.sort(function (a, b) {
+              if (a.rating > b.rating) {
+                return -1;
+              }
+              if (a.rating < b.rating) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        videogames: sortedArr2,
       };
 
     default:
