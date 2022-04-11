@@ -169,8 +169,13 @@ router.get("/videogame/:id", async (req, res) => {
     let { id } = req.params;
     console.log(typeof id);
     if (isUUid(id)) {
-      console.log("basedeDatos");
-      const videogameId = await Videogame.findByPk(req.params.id);
+      const videogameId = await Videogame.findByPk(req.params.id, {
+        include: {
+          model: Genre,
+          attributes: ["name"],
+          through: { attributes: [] },
+        },
+      });
       if (videogameId) {
         res.status(200).send(videogameId);
       } else {

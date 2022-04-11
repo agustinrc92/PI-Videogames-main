@@ -15,6 +15,7 @@ export default function Detail(props) {
   //MYVIDEOGAMES.GENRES ME LO TRAE UNDEFINED CUANDO SON CREADOS
 
   const myVideogame = useSelector((state) => state.detail);
+  console.log(myVideogame);
 
   return (
     <div>
@@ -29,7 +30,9 @@ export default function Detail(props) {
           />
           <h2>
             Genero:{" "}
-            {!myVideogame.createdInDb ? myVideogame.genres + " " : undefined}
+            {!myVideogame.createdInDb
+              ? myVideogame.genres + " "
+              : myVideogame.genres.map((el) => el.name + " ")}
           </h2>
           <p>
             Descripcion: {myVideogame.description.replace(/(<([^>]+)>)/gi, "")}
