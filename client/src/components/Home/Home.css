@@ -22,12 +22,8 @@
 }
 .card {
   align-self: center;
-}
-
-.bodyNOSIRVELPM {
-  background-image: url(https://raw.githubusercontent.com/Pavegliobruno/Videogames/main/client/src/components/LandingPage/background.jpg);
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  width: 20%;
+  height: 20%;
+  margin: 10px;
+  border-radius: 5px;
 }

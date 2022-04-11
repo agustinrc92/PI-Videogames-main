@@ -21,25 +21,25 @@ export default function Detail(props) {
     <div>
       {Object.entries(myVideogame).length > 0 ? (
         <div>
-          <h1>{myVideogame.name}</h1>
+          <h1 class="color">{myVideogame.name}</h1>
           <img
             src={myVideogame.img ? myVideogame.img : myVideogame.image}
             alt=""
             width="300px"
             height="250px"
           />
-          <h2>
+          <h2 class="color">
             Genero:{" "}
             {!myVideogame.createdInDb
               ? myVideogame.genres + " "
               : myVideogame.genres.map((el) => el.name + " ")}
           </h2>
-          <p>
+          <p class="color">
             Descripcion: {myVideogame.description.replace(/(<([^>]+)>)/gi, "")}
           </p>
-          <p>Fecha de Lanzamiento: {myVideogame.released}</p>
-          <p>Rating: {myVideogame.rating}</p>
-          <p>
+          <p class="color">Fecha de Lanzamiento: {myVideogame.released}</p>
+          <p class="color">Rating: {myVideogame.rating}</p>
+          <p class="color">
             Plataformas:{" "}
             {!myVideogame.createdInDb
               ? myVideogame.platforms + " "
@@ -50,7 +50,7 @@ export default function Detail(props) {
         <p>Loading..</p>
       )}
       <Link to="/home">
-        <button>Volver</button>
+        <button class="buttonDetalles">Volver</button>
       </Link>
     </div>
   );
