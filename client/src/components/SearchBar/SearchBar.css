@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,500;1,700&display=swap");
+
+.buttonSearchBar {
+  background-color: black;
+  color: white;
+  padding: 5px 30px;
+  margin: 20px 0;
+  border: 1px solid white;
+  border-radius: 7px;
+  justify-content: center;
+  cursor: pointer;
+  width: 7%;
+  font-size: 15px;
+  text-align: left;
+  height: 30px;
+}

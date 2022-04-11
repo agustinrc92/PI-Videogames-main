@@ -11,3 +11,23 @@
   font-size: 15px;
   text-align: center;
 }
+
+.h1Titulo {
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 5px;
+}
+.card {
+  align-self: center;
+}
+
+.bodyNOSIRVELPM {
+  background-image: url(https://raw.githubusercontent.com/Pavegliobruno/Videogames/main/client/src/components/LandingPage/background.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

@@ -69,8 +69,7 @@ export default function Home() {
   return (
     <body>
       <div>
-        <Link to="/videogame">Crear Videojuego</Link>
-        <h1>Videogames Center</h1>
+        <h1 class="h1Titulo">Videogames Center</h1>
         <div>
           <select onChange={(e) => handleOrderByRating(e)}>
             <option value="asc">Rating Ascendente</option>
@@ -89,12 +88,15 @@ export default function Home() {
             <option value="creados">Creado</option>
             <option value="existente">Existente</option>
           </select>
+          <select onChange={(e) => handleSort(e)}>
+            <option value="desc">A-Z</option>
+            <option value="asc">Z-A</option>
+          </select>
           <div>
-            <select onChange={(e) => handleSort(e)}>
-              <option value="desc">A-Z</option>
-              <option value="asc">Z-A</option>
-            </select>
             <SearchBar />
+            <Link to="/videogame">
+              <button class="buttonDetalles">Crear Videojuego</button>
+            </Link>
             <nav>
               <Paginado
                 videogamesPerPage={videogamesPerPage}
@@ -103,7 +105,6 @@ export default function Home() {
               />
             </nav>
           </div>
-
           {currentVideoGames &&
             currentVideoGames.map((el) => {
               <Card name={el.name} image={el.image} genre={el.genres} />;

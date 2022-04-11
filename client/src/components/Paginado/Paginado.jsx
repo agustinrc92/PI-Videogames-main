@@ -8,15 +8,13 @@ export default function Paginado({ videogamesPerPage, videogames, paginado }) {
     pageNumbers.push(i + 1);
   }
   return (
-    <nav>
-      <ul className="paginado">
-        {pageNumbers &&
-          pageNumbers.map((number) => (
-            <div className="number" key={number}>
-              <button onClick={() => paginado(number)}>{number}</button>;
-            </div>
-          ))}
-      </ul>
+    <nav class="pagination">
+      {pageNumbers &&
+        pageNumbers.map((number) => (
+          <div key={number} class="item">
+            <button onClick={() => paginado(number)}>{number}</button>;
+          </div>
+        ))}
     </nav>
   );
 }

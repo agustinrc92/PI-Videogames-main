@@ -95,15 +95,16 @@ export default function VideogameCreate() {
   ];
 
   return (
-    <div>
+    <div class="container">
       <Link to="/home">
-        <button>Volver</button>
+        <button class="button2">Volver</button>
       </Link>
       <h1>Crear Videojuego!</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
           <label>Nombre:</label>
           <input
+            class="label"
             type="text"
             value={input.name}
             name="name"
@@ -114,6 +115,7 @@ export default function VideogameCreate() {
         <div>
           <label>Descripcion:</label>
           <input
+            class="label"
             type="text"
             value={input.description}
             name="description"
@@ -124,6 +126,7 @@ export default function VideogameCreate() {
         <div>
           <label>Fecha de lanzamiento:</label>
           <input
+            class="label"
             type="date"
             value={input.released}
             name="released"
@@ -133,6 +136,7 @@ export default function VideogameCreate() {
         <div>
           <label>Rating:</label>
           <input
+            class="label"
             type="text"
             value={input.rating}
             name="rating"
@@ -141,7 +145,7 @@ export default function VideogameCreate() {
         </div>
         <div>
           <label>Generos</label>
-          <select onChange={(e) => handleSelect(e)}>
+          <select class="label" onChange={(e) => handleSelect(e)}>
             {genres.map((genres) => (
               <option key={genres.id} value={genres.name}>
                 {genres.name}
@@ -155,12 +159,12 @@ export default function VideogameCreate() {
         {input.genres.map((el) => (
           <div className="divGenres">
             <p>{el}</p>
-            <button className="botonX" onClick={() => handleDelete(el)}>
+            <button class="button" onClick={() => handleDelete(el)}>
               X
             </button>
           </div>
         ))}
-        <div>
+        <div class="checks">
           <label>Platforms:</label>
           <div>
             {randomPlatforms.map((P) => (
@@ -171,7 +175,9 @@ export default function VideogameCreate() {
             ))}
           </div>
         </div>
-        <button type="submit">Crear VideoJuego</button>
+        <button class="button1" type="submit">
+          Crear VideoJuego
+        </button>
       </form>
     </div>
   );
