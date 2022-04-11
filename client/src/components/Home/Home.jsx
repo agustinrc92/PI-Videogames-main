@@ -18,7 +18,7 @@ import "./Home.css";
 export default function Home() {
   const dispatch = useDispatch();
   const videogames = useSelector((state) => state.videogames);
-  const [setOrden] = useState("");
+  const [, setOrden] = useState("");
   const genres = useSelector((state) => state.genres);
   const [currentPage, setCurrentPage] = useState(1);
   const [videogamesPerPage] = useState(15);
