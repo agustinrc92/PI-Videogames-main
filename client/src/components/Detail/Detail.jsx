@@ -29,9 +29,7 @@ export default function Detail(props) {
           />
           <h2>
             Genero:{" "}
-            {!myVideogame.createdInDb
-              ? myVideogame.genres + " "
-              : myVideogame.genres.map((el) => el.name + " ")}
+            {!myVideogame.createdInDb ? myVideogame.genres + " " : undefined}
           </h2>
           <p>
             Descripcion: {myVideogame.description.replace(/(<([^>]+)>)/gi, "")}
