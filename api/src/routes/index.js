@@ -17,7 +17,7 @@ let page = `https://api.rawg.io/api/games?key=${API_KEY}`;
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-//Obtener todos los juegos
+//Obtener todos los juegos de la API
 
 const getAllGames = async () => {
   console.log(page);
@@ -48,7 +48,7 @@ const getAllGames = async () => {
   return results;
 };
 
-//Obtener info de DB
+//Obtener info de DB (VideoJuegos Creados)
 
 const getDbInfo = async () => {
   let dbInfo = await Videogame.findAll({
@@ -68,7 +68,7 @@ const getDbInfo = async () => {
   return dbInfo;
 };
 
-//Juntar toda la info q traje y la de db
+//Juntar toda la info q traje de la api y la de db
 
 const getAllVideogames = async () => {
   const apiInfo = await getAllGames();
@@ -131,7 +131,7 @@ router.get("/genres", async (req, res) => {
   }
 });
 
-//Ruta de Post
+//Ruta de Post (Crear Videojuegos)
 
 router.post("/videogame", async (req, res) => {
   try {
@@ -156,7 +156,7 @@ router.post("/videogame", async (req, res) => {
   }
 });
 
-//Ruta de ID
+//Ruta de ID (Mostrar videojuegos Detalle)
 
 function isUUid(id) {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(

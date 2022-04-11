@@ -12,8 +12,6 @@ export default function Detail(props) {
     dispatch(getDetail(props.match.params.id));
   }, [dispatch, props.match.params.id]);
 
-  //MYVIDEOGAMES.GENRES ME LO TRAE UNDEFINED CUANDO SON CREADOS
-
   const myVideogame = useSelector((state) => state.detail);
   console.log(myVideogame);
 
