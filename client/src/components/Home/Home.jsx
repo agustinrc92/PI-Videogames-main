@@ -110,10 +110,14 @@ export default function Home() {
               <Card name={el.name} image={el.image} genre={el.genres} />;
               return (
                 <div>
-                  <Card name={el.name} image={el.image} genre={el.genres} />
-                  <Link to={`videogame/${el.id}`}>
-                    <button class="buttonDetalles">Detalles</button>
-                  </Link>
+                  <nav class="mover">
+                    <Card name={el.name} image={el.image} genre={el.genres} />
+                  </nav>
+                  <nav>
+                    <Link to={`videogame/${el.id}`}>
+                      <button class="buttonDetalles">Detalles</button>
+                    </Link>
+                  </nav>
                 </div>
               );
             })}
