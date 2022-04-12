@@ -157,7 +157,7 @@ export default function VideogameCreate() {
           </ul>
         </div>
         {input.genres.map((el) => (
-          <div className="divGenres">
+          <div>
             <p>{el}</p>
             <button class="button" onClick={() => handleDelete(el)}>
               X
