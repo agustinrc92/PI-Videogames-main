@@ -1,5 +1,5 @@
 .body {
-  background-image: url(https://raw.githubusercontent.com/Pavegliobruno/Videogames/main/client/src/components/LandingPage/background.jpg);
+  background-image: url(https://as1.ftcdn.net/v2/jpg/02/42/75/76/1000_F_242757656_LYhzT9Kzxb5XdOsNY6SYSyroxMzZBeRN.jpg);
   height: 100vh;
   background-size: cover;
   display: flex;
@@ -22,9 +22,11 @@
 
 .h1 {
   text-align: center;
-  font-size: 50px;
-  color: whitesmoke;
-  background-color: transparent;
+  font-size: 80px;
+  color: black;
+  background-color: rgba(255, 255, 0, 0.603);
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 15px;
+  border: 10px;
+  width: 100%;
 }

@@ -81,17 +81,17 @@ export default function VideogameCreate() {
   //PLATAFORMAS
   const randomPlatforms = [
     "PC",
+    "PS2",
+    "PS3",
     "PS4",
     "XBOX",
     "SWITCH",
-    "PS3",
     "XBOX ONE",
-    "NINTENDO SWITCH",
-    "PS2",
     "NINTENDO DS",
-    "NINTENDO WII",
-    "NINTENDO GAMECUBE",
     "NINTENDO 64",
+    "NINTENDO WII",
+    "NINTENDO SWITCH",
+    "NINTENDO GAMECUBE",
   ];
 
   return (

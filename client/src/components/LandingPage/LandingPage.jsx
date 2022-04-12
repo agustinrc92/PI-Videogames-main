@@ -5,7 +5,7 @@ export default function LandingPage() {
   return (
     <body class="body">
       <div>
-        <h1 class="h1">Proyecto Videogames</h1>
+        <h1 class="h1">Proyecto Henry Videogames</h1>
         <h1 class="h1">Agustin Rodriguez</h1>
         <Link to="/home">
           <button class="button">Ingresar</button>
