@@ -36,6 +36,7 @@ export default function Home() {
   useEffect(() => {
     dispatch(getVideogames());
     dispatch(getGenres());
+    setCurrentPage(1);
   }, [dispatch]);
 
   //FUNCION PARA FILTRAR POR GENERO
