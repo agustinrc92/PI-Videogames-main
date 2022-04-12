@@ -69,13 +69,13 @@ export default function Home() {
   return (
     <body>
       <div>
-        <h1 class="h1Titulo">Videogames Center</h1>
+        <h1 class="h1Titulo">HENRY VIDEOGAMES CENTER</h1>
         <div>
-          <select onChange={(e) => handleOrderByRating(e)}>
+          <select class="barras" onChange={(e) => handleOrderByRating(e)}>
             <option value="asc">Rating Ascendente</option>
             <option value="desc">Rating Descendente</option>
           </select>
-          <select onChange={(e) => handleFilterGenres(e)}>
+          <select class="barras" onChange={(e) => handleFilterGenres(e)}>
             <option value="All">Todos</option>
             {genres.map((genre) => (
               <option key={genre.id} value={genre.name}>
@@ -83,12 +83,12 @@ export default function Home() {
               </option>
             ))}
           </select>
-          <select onChange={(e) => handleFilterCreated(e)}>
+          <select class="barras" onChange={(e) => handleFilterCreated(e)}>
             <option value="All">Todos</option>
             <option value="creados">Creado</option>
             <option value="existente">Existente</option>
           </select>
-          <select onChange={(e) => handleSort(e)}>
+          <select class="barras" onChange={(e) => handleSort(e)}>
             <option value="desc">A-Z</option>
             <option value="asc">Z-A</option>
           </select>

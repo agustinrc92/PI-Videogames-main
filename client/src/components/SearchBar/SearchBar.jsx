@@ -20,6 +20,7 @@ export default function SearchBar() {
   return (
     <div>
       <input
+        class="barras2"
         type="text"
         placeholder="Buscar..."
         onChange={(e) => handleImputChange(e)}

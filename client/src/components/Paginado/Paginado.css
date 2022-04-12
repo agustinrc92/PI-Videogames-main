@@ -5,6 +5,9 @@
   align-items: center;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.108);
+  width: 50%;
+  align-self: center;
+  margin-left: 375px;
 }
 
 .pagination button {

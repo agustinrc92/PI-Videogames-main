@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 .container {
-  height: 120vh;
+  height: 130vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,12 +28,12 @@
 }
 
 .label {
-  width: 145px;
+  width: 180px;
   border: 1px solid black;
   border-radius: 10px;
   background: none;
-  margin: 5px;
-  color: black;
+  margin: 8px;
+  color: white;
 }
 
 .label:hover {
@@ -117,4 +117,15 @@
   text-align: center;
   height: 30px;
   margin-top: 5px;
+}
+
+.creavg {
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.108);
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 50%;
 }

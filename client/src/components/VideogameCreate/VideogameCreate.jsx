@@ -99,10 +99,10 @@ export default function VideogameCreate() {
       <Link to="/home">
         <button class="button2">Volver</button>
       </Link>
-      <h1>Crear Videojuego!</h1>
+      <h1 class="creavg">CREA TU VIDEOJUEGO!</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
-          <label>Nombre:</label>
+          <label>NOMBRE:</label>
           <input
             class="label"
             type="text"
@@ -113,7 +113,7 @@ export default function VideogameCreate() {
           {errors.name && <p className="error">{errors.name}</p>}
         </div>
         <div>
-          <label>Descripcion:</label>
+          <label>DESCRIPCION:</label>
           <input
             class="label"
             type="text"
@@ -124,7 +124,7 @@ export default function VideogameCreate() {
           {errors.description && <p className="error">{errors.description}</p>}
         </div>
         <div>
-          <label>Fecha de lanzamiento:</label>
+          <label>FECHA DE LANZAMIENTO:</label>
           <input
             class="label"
             type="date"
@@ -134,7 +134,7 @@ export default function VideogameCreate() {
           ></input>
         </div>
         <div>
-          <label>Rating:</label>
+          <label>RATING:</label>
           <input
             class="label"
             type="text"
@@ -144,7 +144,7 @@ export default function VideogameCreate() {
           ></input>
         </div>
         <div>
-          <label>Generos</label>
+          <label>GENEROS</label>
           <select class="label" onChange={(e) => handleSelect(e)}>
             {genres.map((genres) => (
               <option key={genres.id} value={genres.name}>
@@ -165,7 +165,7 @@ export default function VideogameCreate() {
           </div>
         ))}
         <div class="checks">
-          <label>Platforms:</label>
+          <label>PLATAFORMAS:</label>
           <div>
             {randomPlatforms.map((P) => (
               <div key={P}>

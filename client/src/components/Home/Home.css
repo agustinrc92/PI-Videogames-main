@@ -14,11 +14,12 @@
 
 .h1Titulo {
   text-align: center;
-  font-size: 50px;
-  color: black;
-  background-color: transparent;
-  padding: 5px;
-  border-radius: 5px;
+  font-size: 60px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.108);
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
 }
 .card {
   align-self: center;
@@ -30,4 +31,17 @@
 
 .mover {
   margin-left: 600px;
+}
+
+.barras {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  height: 28px;
+  border: 4px;
+  border-radius: 7px;
+  background-color: black;
+  color: white;
+  width: 13%;
+  border: 1px solid black;
+  text-align: center;
 }
